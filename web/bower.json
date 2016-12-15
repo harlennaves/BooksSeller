@@ -1,0 +1,36 @@
+{
+  "name": "books-seller-app",
+  "version": "0.0.1",
+  "authors": [
+    "Harlen Morais Naves <harlennaves@gmail.com>"
+  ],
+  "description": "Books Seller",
+  "keywords": [
+    "Books",
+    "Seller",
+    "Store"
+  ],
+  "license": "MIT",
+  "homepage": "www.harlennaves.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-animate": "*",
+    "angular-aria": "*",
+    "angular-filter": "*",
+    "angular-messages": "*",
+    "angular-material": "*",
+    "angular-route": "*",
+    "angular-ui-router": "*",
+    "angular-sanitize": "*",
+    "jquery": "*",
+    "angular-translate": "*",
+    "angular-translate-loader-partial": "*",
+    "angular-material-icons": "*",
+    "font-awesome": "^4.7.0"
+  }
+}

@@ -1,0 +1,54 @@
+<div flex="100" layout="column" ng-scope ng-controller="BookEditController">
+    <md-card md-theme="teal">
+        <md-toolbar class="padding-20">
+            <div layout="row" layout-align="center center">
+                <h1 class="md-headline ng-scope">Book Information</h1>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding">
+            <form name="bookForm">
+                <md-input-container class="md-block">
+                    <label>Code</label>
+                    <input type="text" ng-pattern="/^[A-Z]{3}[-][0-9]{4}$/" required ng-maxlength="8" name="code" ng-model="book.Code"/>
+                    <div ng-messages="bookForm.code.$error">
+                        <div ng-message="required">
+                            Book's code is required
+                        </div>
+                        <div ng-message="pattern">
+                            Book's code must be in ABC-9999 format
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Title</label>
+                    <input name="title" type="text" ng-minlength="1" ng-maxlength="100" required ng-model="book.Title"/>
+                    <div ng-messages="bookForm.title.$error" multiple>
+                        <div ng-message="required">
+                            Book title is required
+                        </div>
+                    </div>
+                </md-input-container>
+                <div layout="row">
+                    <md-input-container class="md-block" flex="50">
+                        <label>Availability</label>
+                        <md-datepicker name="availability" required ng-model="book.ReleaseDate" md-placeholder=""></md-datepicker>
+                        <div ng-messages="bookForm.availability.$error" multiple>
+                            <div ng-message="required">
+                                Book's availability date is required
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex="50">
+                      <label>Price</label>
+                      <input name="price" ng-model="book.Price" type="number" step="0.01" />
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-align="end center">
+
+                <md-button type="submit" class="md-primary" ng-click="cancel()">Cancel</md-button>
+                <md-button type="submit" ng-disabled="bookForm.$invalid" ng-click="save()" class="md-primary">Save</md-button>
+              </div>
+            </form>
+        </md-content>
+    </md-card>
+</div>

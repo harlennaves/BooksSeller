@@ -1,0 +1,16 @@
+{
+  "name" : "books-seller-web",
+  "version" : "1.0.0",
+  "private" : true,
+  "dependencies" : {
+    "gulp" : "*",
+    "gulp-typescript" : "*",
+    "merge2" : "*",
+    "gulp-connect" : "*",
+    "gulp-uglify" : "*",
+    "require-dir" : "*",
+    "gulp-watch" : "*",
+    "gulp-batch" : "*",
+    "gulp-bower" : "*"
+  }
+}

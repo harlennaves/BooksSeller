@@ -1,0 +1,6 @@
+
+    <div ng-include="'html/components/header.html'" />
+    <div layout="row" flex="100" class="overflow-hidden" class="ng-scope">
+        <div ng-show="!isEditMode" ng-include="'html/components/books-list.html'" flex="100" flex-xs="100" ng-scope/>
+        <div ng-show="isEditMode" ng-include="'html/components/book-edit.html'" flex="100" flex-xs="100" ng-scope/>
+    </div>

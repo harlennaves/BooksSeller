@@ -1,0 +1,57 @@
+<div flex="100" layout="column" ng-scope ng-controller="MessageListController">
+
+    <md-toolbar md-theme="white-teal">
+        <div class="md-toolbar-tools" layout="row" layout-align="start end">
+          <md-button class="md-icon-button" ng-click="toggleFolderPanel()">
+              <ng-md-icon icon="menu" class="md-avatar"></ng-md-icon>
+          </md-button>
+            <md-input-container flex="100" style="margin-bottom:-18px" ng-show="!isSelectionMode">
+                <label for="search" class="ng-scope">Search</label>
+                <input type="text" name="search" label="search" class="ng-pristine ng-untouched-md-input" />
+
+            </md-input-container>
+
+            <span flex></span>
+            <md-button class="md-icon-button" ng-show="!isSelectionMode">
+                <ng-md-icon icon="search" class="md-avatar"></ng-md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-show="isSelectionMode" ng-click="deleteSelected()">
+                <ng-md-icon icon="delete"></ng-md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="toggleSelectionMode()" ng-disabled="$scope.messages.length == 0">
+                <ng-md-icon icon="{{isSelectionMode ? 'playlist_add_check' : 'list'}}" class="md-avatar"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content style="overflow:auto" class="skscrollbar">
+        <md-list flex>
+            <md-list-item class="md-2-line" layout="row" layout-align="center center" ng-repeat="message in messages" ng-click="viewSelectedMessage(message.Id)">
+                <md-checkbox ng-show="isSelectionMode" ng-model="message.Selected" class="md-warn"></md-checkbox>
+                <ng-md-icon icon="face" size="48" class="md-avatar"></ng-md-icon>
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{message.Sender}}</h3>
+                    <p>{{message.Subject + " " + message.Id}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+    <md-sidenav class="md-sidenav-left" md-component-id="foldersPanel">
+      <md-toolbar md-theme="teal">
+        <div class="md-toolbar-tools">
+          <h3>Messages folder</h3>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding layout="column" layout-align="start start">
+        <md-button ng-click="showComposer()">
+          <ng-md-icon icon="mode_edit"></ng-md-icon>
+          New Message
+        </md-button>
+        <md-button flex>
+          <ng-md-icon icon="inbox" class="md-avatar"></ng-md-icon>
+          Inbox
+        </md-button>
+
+      </md-content>
+    </md-sidenav>
+
+</div>

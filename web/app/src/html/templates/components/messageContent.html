@@ -1,0 +1,27 @@
+<div layout="column" layout-fill layout-align="start start" flex="100" ng-controller="MessageReaderController">
+    <md-toolbar  md-theme="white-teal">
+        <div class="md-toolbar-tools">
+          <ng-md-icon icon="face" size="48" class="md-avatar" flex-direction="reverse" flex-offset="5"></ng-md-icon>
+          <div layout="column" class="padding-left-5" flex="70" >
+            <h3>{{selectedMessage.Sender}}</h3>
+            <h2>{{selectedMessage.Subject}}</h2>
+          </div>
+          <span flex></span>
+          <md-button class="md-icon-button">
+              <ng-md-icon icon="reply"></ng-md-icon>
+          </md-button>
+          <md-button class="md-icon-button">
+              <ng-md-icon icon="reply_all"></ng-md-icon>
+          </md-button>
+          <md-button class="md-icon-button">
+              <ng-md-icon icon="forward"></ng-md-icon>
+          </md-button>
+          <md-button class="md-icon-button">
+              <ng-md-icon icon="delete"></ng-md-icon>
+          </md-button>
+        </div>
+    </md-toolbar>
+    <md-content layout="column" layout-align="start start" flex="100" class="full-width skscrollbar" style="width:100%;">
+      <span ng-bind-html="selectedMessage.Content" style="padding-top:10px;padding-left:10px"></span>
+    </md-content>
+</div>

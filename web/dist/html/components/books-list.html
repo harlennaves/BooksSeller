@@ -1,0 +1,20 @@
+<div flex="100" layout="column" ng-scope ng-controller="BooksListController">
+<md-content style="overflow:auto" class="skscrollbar">
+    <md-list flex>
+        <md-list-item class="md-2-line" layout="row" layout-align="center center" ng-repeat="book in books" ng-click="edit(book)">
+            <ng-md-icon icon="book" size="48" class="md-avatar"></ng-md-icon>
+            <div class="md-list-item-text" layout="column" >
+                <h3>{{book.Title}}</h3>
+                <p>Released at {{book.ReleaseDate | date:'longDate'}}</p>
+                <p class="padding-20">
+                  For {{book.Price | currency}}
+                </p>
+            </div>
+            <ng-md-icon class="md-secondary" icon="delete" ng-click="delete(book.Code)"></ng-md-icon>
+        </md-list-item>
+    </md-list>
+</md-content>
+<md-button class="md-fab md-mini md-primary" style="position:fixed;bottom:0;right:0;padding-top:6px" md-theme="teal" ng-click="add()">
+  <ng-md-icon icon="my_library_add"  ></ng-md-icon>
+</md-button>
+</div>
